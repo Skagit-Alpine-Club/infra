@@ -37,7 +37,7 @@ def wait_for_supabase_deployment(api_key: str, ref: str, timeout: int = 300):
 
 
 def get_supabase_db(
-    resource_name, db_password: pulumi_random.RandomPassword, protect: bool
+    resource_name, database_name, db_password: pulumi_random.RandomPassword, protect: bool
 ) -> tuple[pulumi.Output[str], pulumi.Resource]:
     """
     To use supabase db run:
@@ -55,7 +55,7 @@ def get_supabase_db(
         database_password=db_password.result,
         organization_id=supabase_slug,
         region="us-west-1",
-        name=f"{resource_name}_{stack}",
+        name=f"{database_name}_{stack}",
         opts=pulumi.ResourceOptions(protect=protect),
     )
     pulumi_supabase.Settings(

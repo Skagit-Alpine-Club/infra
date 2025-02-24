@@ -44,7 +44,7 @@ def build_stack(
 
     # db
     db_password = pulumi_random.RandomPassword("db_password", length=50, special=False)
-    db_url, database = get_supabase_db("bmc_db", db_password, protect_data)
+    db_url, database = get_supabase_db("db", f"{project_slug}_db", db_password, protect_data)
 
     db_backup_bucket = aws.s3.BucketV2(
         "db_backup_bucket",
