@@ -1,4 +1,4 @@
-Metadata-Version: 2.2
+Metadata-Version: 2.4
 Name: pulumi_supabase
 Version: 1.5.1
 Summary: A Pulumi provider dynamically bridged from supabase.
