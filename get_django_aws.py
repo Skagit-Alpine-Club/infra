@@ -155,6 +155,7 @@ def build_stack(
     migrate_command = pulumi_command.local.Command(
         "migrate_command",
         create="python manage.py migrate --no-input",
+        update="python manage.py migrate --no-input",
         opts=pulumi.ResourceOptions(
             depends_on=[database, secret_config_version, check_db_command]
         ),
